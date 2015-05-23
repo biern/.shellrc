@@ -18,3 +18,4 @@ alias pinky_brain_machine='cd ~/projekty/pinky-brain/ansible && source ~/projekt
 alias jest_internet='ping 8.8.8.8'
 alias morello='cd /home/marcin/projekty/morello/morello && source /home/marcin/projekty/morello/venv-morello/bin/activate'
 alias modalyst='cd ~/praca/infiniteloop/modalyst/ && workon modalyst'
+alias morello/webserver='cd /home/marcin/projekty/morello/webserver/morello/webserver && source /home/marcin/projekty/morello/webserver/venv-morello/webserver/bin/activate'
