@@ -2,7 +2,7 @@ PROJECTS_PATH="$HOME/projekty"
 ALIASES_PATH="$HOME/.shellrc/rc.d/aliases.sh"
 
 
-function create_python_project {
+function trb.create_python_project {
     VENV_DIR="$PROJECTS_PATH/$1/venv-$1"
     ALIAS="cd $PROJECTS_PATH/$1/$1 && source $VENV_DIR/bin/activate"
 
