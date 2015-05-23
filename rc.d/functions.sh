@@ -24,3 +24,13 @@ function trb.create_python_project {
     echo "alias $1='$ALIAS'" >> $ALIASES_PATH
     eval $ALIAS
 }
+
+
+function trb.enc.mount {
+    encfs /home/marcin/Dropbox/.enc /home/marcin/enc
+}
+
+
+function trb.enc.umont {
+    fusermount -u /home/marcin/enc
+}
