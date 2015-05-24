@@ -57,10 +57,14 @@ function trb.project.create.python {
 
     VENV_DIR=`trb.project.venv_dir $1`
     # Venv
-    if [ "$2" == "py2" ] ; then
-        virtualenv $VENV_DIR
+    if [ -d $VENV_DIR ] ; then
+        echo "virtualenv exists, skipping"
     else
-        pyvenv $VENV_DIR
+        if [ "$2" == "py2" ] ; then
+            virtualenv $VENV_DIR
+        else
+            pyvenv $VENV_DIR
+        fi
     fi
 
     echo "source $VENV_DIR/bin/activate" >> `trb.project.env $1`
