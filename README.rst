@@ -30,9 +30,13 @@ Managing projects with trb.project:
 
 Note that $APP_NAME always defaults to $NAME, so ``trb.open_project test`` and ``trb.project.open test/test`` are equal.
 
+* ``trb.project.create NAME[/APP_NAME]``
+
+  Creates new project at ``$PROJECTS_PATH/$NAME/$APP_NAME``. Generates ``$PROJECTS_PATH/$NAME/.$APP_NAME.env``. Generates ``NAME[/APP_NAME]`` alias in ``.shellrc/rc.d/project_aliases.sh``.
+
 * ``trb.project.create.python NAME[/APP_NAME]``
 
-  Creates new python project at ``$PROJECTS_PATH/$NAME/$APP_NAME``. Generates python virtualenv at ``$PROJECTS_PATH/$NAME/venv-$APP_NAME`` and ``$PROJECTS_PATH/$NAME/.$APP_NAME.env`` file that activates that virtualenv. Generates ``NAME[/APP_NAME]`` alias in ``.shellrc/rc.d/project_aliases.sh``.
+  Creates new python project at ``$PROJECTS_PATH/$NAME/$APP_NAME``. Calls ``trb.project.create`` . Generates python virtualenv at ``$PROJECTS_PATH/$NAME/venv-$APP_NAME`` and adds a line to activate it in ``$PROJECTS_PATH/$NAME/.$APP_NAME.env``.
 
   Note that ``trb.project.create.python`` can be used to generate .env files in existing projects, so that ``trb.project.open`` can open them.
 
