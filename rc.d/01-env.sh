@@ -15,4 +15,4 @@ fi
 
 
 export PROJECTS_PATH="$HOME/projekty"
-export ALIASES_PATH="$HOME/.shellrc/rc.d/aliases.sh"
+export PROJECT_ALIASES_PATH="$HOME/.shellrc/rc.d/project_aliases.sh"
