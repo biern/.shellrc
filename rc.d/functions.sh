@@ -26,9 +26,12 @@ function trb.project.open {
     trb.project.split_names $1
 
     PROJECT_DIR=$PROJECTS_PATH/$BASE_NAME/$APP_NAME
+    ENV_FILE=`trb.project.env $1`
 
-    if [ -e `trb.project.env $1` ] ; then
-        source `trb.project.env $1`
+    if [ -e $ENV_FILE ] ; then
+        source $ENV_FILE
+    else
+        echo "env file \"$ENV_FILE\" does not exist"
     fi
 }
 
