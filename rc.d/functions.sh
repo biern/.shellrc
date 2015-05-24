@@ -74,10 +74,14 @@ function trb.project.create.python {
 
 
 function trb.enc.mount {
-    encfs $HOME/Dropbox/.enc $HOME/enc
+    encfs $ENC_MOUNT_SRC $ENC_MOUNT_DST
+    cd $ENC_MOUNT_DST
 }
 
 
 function trb.enc.umont {
-    fusermount -u $HOME/enc
+    if [ `pwd` == $ENC_MOUNT_DST ] ; then
+        cd $HOME
+    fi
+    fusermount -u $ENC_MOUNT_DST
 }
