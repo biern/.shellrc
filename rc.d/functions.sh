@@ -70,7 +70,7 @@ function trb.project.create.python {
 
 
 function trb.enc.mount {
-    encfs $HOME/Dropbox/.enc /home/marcin/enc
+    encfs $HOME/Dropbox/.enc $HOME/enc
 }
 
 
