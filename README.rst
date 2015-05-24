@@ -41,6 +41,21 @@ Note that $APP_NAME always defaults to $NAME, so ``trb.open_project test`` and `
   Open project at ``$PROJECTS_PATH/$NAME/$APP_NAME`` by sourcing ``$PROJECTS_PATH/$NAME/.$APP_NAME.env``. ``$PROJECT_DIR`` is available in context.
 
 
+Encfs shortcuts
+---------------
+
+Assumes ``encfs`` is installed.
+
+* ``trb.enc.mount``
+
+  Mounts ``$ENC_MOUNT_SRC`` to ``$ENC_MOUNT_DST``. Changes directory to ``$ENC_MOUNT_DST``.
+
+* ``trb.enc.umount``
+
+  Unmounts ``$ENC_MOUNT_DST``. Changes directory first if current shell is inside ``$ENC_MOUNT_DST``.
+
+
+
 See `functions.sh`_ for full reference.
 
 .. _`functions.sh`: rc.d/functions.sh

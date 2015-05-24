@@ -80,8 +80,8 @@ function trb.enc.mount {
 
 
 function trb.enc.umont {
-    if [ `pwd` == $ENC_MOUNT_DST ] ; then
-        cd $HOME
+    if [[ `pwd` == $ENC_MOUNT_DST* ]] ; then
+        cd "${ENC_MOUNT_DST}/../"
     fi
     fusermount -u $ENC_MOUNT_DST
 }
