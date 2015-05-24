@@ -19,7 +19,7 @@ Features
 
 * All features are contained in ``trb.*`` namespace, reference below.
 * Installs `oh-my-zsh`_ when used along with zsh.
-* Required environment variables are defined in `01-env.sh`_. Setup your own configuration in `rc.d/02-env-local.sh`
+* Required environment variables are defined in `01-env.sh`_. Setup your own configuration in ``rc.d/02-env-local.sh``
 
 .. _`01-env.sh`: rc.d/01-env.sh
 .. _`oh-my-zsh`: https://github.com/robbyrussell/oh-my-zsh
@@ -28,7 +28,7 @@ Features
 Managing projects with trb.project:
 -----------------------------------
 
-Note that $APP_NAME always defaults to $NAME, so ``trb.open_project test`` and ``trb.project.open test/test`` are equal.
+Note that ``$APP_NAME`` always defaults to ``$NAME``, so ``trb.open_project test`` and ``trb.project.open test/test`` are equal.
 
 * ``trb.project.create NAME[/APP_NAME]``
 
