@@ -1,1 +1,2 @@
 /rc.d/project_aliases.sh
+/rc.d/02-env-local.sh

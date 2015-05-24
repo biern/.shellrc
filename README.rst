@@ -17,13 +17,12 @@ zsh::
 Features
 ========
 
-* Features are contained in ``trb.*`` namespace. Required environment variables are defined in `01-env.sh`_.
+* All features are contained in ``trb.*`` namespace, reference below.
 * Installs `oh-my-zsh`_ when used along with zsh.
+* Required environment variables are defined in `01-env.sh`_. Setup your own configuration in `rc.d/02-env-local.sh`
 
-..
-
-    _`01-env.sh`: rc.d/01-env.sh
-    _`oh-my-zsh`: https://github.com/robbyrussell/oh-my-zsh
+.. _`01-env.sh`: rc.d/01-env.sh
+.. _`oh-my-zsh`: https://github.com/robbyrussell/oh-my-zsh
 
 
 Managing projects with trb.project:
