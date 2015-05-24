@@ -17,8 +17,6 @@ compinit
 # End of lines added by compinstall
 
 autoload -U colors && colors
-export PS1="%{$fg[green]%}%* %{$reset_color%}%{$fg[blue]%}%n%{$fg[green]%}@%{$fg[green]%}%m %{$fg[yellow]%}%~ %{$reset_color%}
-$ "
 
 insert_sudo () { zle beginning-of-line; zle -U "sudo "; }
 zle -N insert-sudo insert_sudo
