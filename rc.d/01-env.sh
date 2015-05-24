@@ -12,3 +12,7 @@ source /usr/bin/virtualenvwrapper.sh
 if [ -e ~/.nvm/nvm.sh ] ; then
     source ~/.nvm/nvm.sh
 fi
+
+
+export PROJECTS_PATH="$HOME/projekty"
+export ALIASES_PATH="$HOME/.shellrc/rc.d/aliases.sh"

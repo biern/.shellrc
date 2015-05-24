@@ -1,7 +1,3 @@
-PROJECTS_PATH="$HOME/projekty"
-ALIASES_PATH="$HOME/.shellrc/rc.d/aliases.sh"
-
-
 function trb.create_python_project {
     VENV_DIR="$PROJECTS_PATH/$1/venv-$1"
     ALIAS="cd $PROJECTS_PATH/$1/$1 && source $VENV_DIR/bin/activate"
@@ -27,10 +23,10 @@ function trb.create_python_project {
 
 
 function trb.enc.mount {
-    encfs /home/marcin/Dropbox/.enc /home/marcin/enc
+    encfs $HOME/Dropbox/.enc /home/marcin/enc
 }
 
 
 function trb.enc.umont {
-    fusermount -u /home/marcin/enc
+    fusermount -u $HOME/enc
 }
