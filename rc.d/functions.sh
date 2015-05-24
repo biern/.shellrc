@@ -1,4 +1,4 @@
-function trb.split_app_base_name {
+function trb.project.split_names {
     BASE_NAME=${1%/*}
     APP_NAME=${1#*/}
 
@@ -8,44 +8,54 @@ function trb.split_app_base_name {
 }
 
 
-function trb.venv_dir {
-    trb.split_app_base_name $1
+function trb.project.venv_dir {
+    trb.project.split_names $1
 
     echo "$PROJECTS_PATH/$BASE_NAME/venv-$APP_NAME"
 }
 
 
-function trb.project_env {
-    trb.split_app_base_name $1
+function trb.project.env {
+    trb.project.split_names $1
 
     echo "$PROJECTS_PATH/$BASE_NAME/.$APP_NAME.env"
 }
 
 
-function trb.open_python_project {
-    trb.split_app_base_name $1
+function trb.project.open {
+    trb.project.split_names $1
 
     PROJECT_DIR=$PROJECTS_PATH/$BASE_NAME/$APP_NAME
-    VENV_DIR=`trb.venv_dir $1`
 
-    if [ -e `trb.project_env $1` ] ; then
-        source `trb.project_env $1`
+    if [ -e `trb.project.env $1` ] ; then
+        source `trb.project.env $1`
     fi
-
-    cd $PROJECT_DIR
-    source $VENV_DIR/bin/activate
 }
 
 
-function trb.create_python_project {
-    trb.split_app_base_name $1
-
-    VENV_DIR=`trb.venv_dir $1`
-    ALIAS="trb.open_python_project $1"
+function trb.project.create {
+    trb.project.split_names $1
+    ALIAS="trb.project.open $1"
 
     pushd $PROJECTS_PATH
-    mkdir $BASE_NAME
+    mkdir -p $BASE_NAME
 
+    # Project dir
+    mkdir -p $BASE_NAME/$APP_NAME
+    pushd $BASE_NAME/$APP_NAME
+    git init
+
+    echo 'cd $PROJECT_DIR' >> `trb.project.env $1`
+
+    echo "alias $1='$ALIAS'" >> $PROJECT_ALIASES_PATH
+    eval $ALIAS
+}
+
+
+function trb.project.create.python {
+    trb.project.create $1
+
+    VENV_DIR=`trb.project.venv_dir $1`
     # Venv
     if [ "$2" == "py2" ] ; then
         virtualenv $VENV_DIR
@@ -53,13 +63,9 @@ function trb.create_python_project {
         pyvenv $VENV_DIR
     fi
 
-    # Project dir
-    mkdir $BASE_NAME/$APP_NAME
-    pushd $BASE_NAME/$APP_NAME
-    git init
+    echo "source $VENV_DIR/bin/activate" >> `trb.project.env $1`
 
-    echo "alias $1='$ALIAS'" >> $PROJECT_ALIASES_PATH
-    eval $ALIAS
+    trb.project.open $1
 }
 
 
