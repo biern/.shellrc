@@ -3,6 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 if [ -e $ZSH ] ; then
 else
+   OH_MY_ZSH_INSTALL=true
    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
 
@@ -53,6 +54,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+if [[ $OH_MY_ZSH_INSTALL == "true" ]] ; then
+   cp ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+fi
 
 export PS1="$PS1
 $ "
