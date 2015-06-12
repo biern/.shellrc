@@ -88,3 +88,16 @@ function trb.enc.umont {
     fi
     fusermount -u $ENC_MOUNT_DST
 }
+
+
+function trb.kmix.master_controls.toggle {
+    current=`qdbus org.kde.kmix /Mixers org.kde.KMix.MixSet.currentMasterControl`
+    if [[ $current == $TRB_AUDIO_CONTROLS_HDMI ]] ; then
+        desired=$TRB_AUDIO_CONTROLS_ANALOG
+    else
+        desired=$TRB_AUDIO_CONTROLS_HDMI
+    fi
+n
+    qdbus org.kde.kmix /Mixers org.kde.KMix.MixSet.setCurrentMaster $TRB_AUDIO_OUTPUT $desired
+    qdbus org.kde.kmix /Mixers org.kde.KMix.MixSet.currentMasterControl
+}
