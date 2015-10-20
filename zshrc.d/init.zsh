@@ -21,3 +21,10 @@ autoload -U colors && colors
 insert_sudo () { zle beginning-of-line; zle -U "sudo "; }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
+
+# http://superuser.com/questions/91881/invoke-zsh-having-it-run-a-command-and-then-enter-interactive-mode-instead-of
+if [[ $1 == eval ]]
+then
+    "$@"
+set --
+fi
